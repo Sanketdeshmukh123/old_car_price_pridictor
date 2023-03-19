@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Car Price Prediction</title>
+    <link rel="stylesheet" href="./input.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- header navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <h1><b>Old Car Price Prediction</b></h1>
+            </div>
+        </div>
+    </nav>
+    <!-- input container -->
+    <div id="parent">
+        <div id="heading">
+            <h4>
+                <b>Project : Integrated Machine Learning into Web Application with FLASK</b>
+            </h4>
+        </div>
+        <div id="input">
+            <form action="{{ url_for('predict')}}" method="post">
+                <table>
+                    <tr>
+                        <td><label for="age_of_car" class="label-control">Car Age</label></td>
+                        <td><input type="text" class="input-control" name="age_of_car" id="age_of_car"
+                                placeholder="Enter the age of car Ex: 1 " required="required"></td>
+                    </tr>
+                    <tr>
+                        <td> <label for="transmission" class="label-control">Transmission</label></td>
+                        <td><select input type="text" class="input-control" name="transmission" id="transmission"
+                                placeholder="Enter the type of transmission car Ex: Manual" required="required"
+                                required>
+                                <option value=0>Automatic</option>
+                                <option value=1>Manual</option>
+                                <option value=2>SemiAuto</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="mileage" class="label-control"> Miles Runned</label>
+                        </td>
+                        <td>
+                            <input type="text" class="input-control" name="mileage" id="mileage"
+                                placeholder="Enter the Total miles traveled or covered Ex: 4562" required="required">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="fuelType" class="label-control">Fuel Type</label>
+                        </td>
+                        <td>
+                            <select input type="text" class="input-control" name="fuelType" id="fuelType"
+                                placeholder="Enter the fuelType of car Ex: Petrol " required="required" required>
+                                <option value=0>Diesel</option>
+                                <option value=1>Petrol</option>
+                                <option value=2>Hybrid</option>
+                                <option value=3>Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="tax" class="label-control">Car Tax</label>
+                        </td>
+                        <td>
+                            <input type="text" class="input-control" name="tax" id="tax"
+                                placeholder="Enter the Tax to be paid for the car Ex: 145" required="required">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="mpg" class="label-control"> Car Mileage </label>
+                        </td>
+                        <td>
+                            <input type="text" class="input-control" name="mpg" id="mpg"
+                                placeholder="Enter the mileage of the car Ex: 49.6 " required="required">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="engineSize" class="label-control">Engine Size</label>
+                        </td>
+                        <td>
+                            <input type="text" class="input-control" name="engineSize" id="engineSize"
+                                placeholder="Enter the Size of the Engine Ex: 2.0 " required="required">
+                        </td>
+                    </tr>
+                    <tr>
+                        <!-- Submit button  -->
+                        <td colspan="2">
+                            <button type="submit" class="submit-button">
+                                <b>Predict Price</b>
+                            </button>
+                        </td>
+                        <!-- <td></td> -->
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-container">
+        <p class='footer-description'>
+            Thanks to <a href="https://dbatu.ac.in/">DBATU</a>
+        </p>
+        <p class='footer-description'>
+            Made with Sanket Deshmukh.
+        </p>
+        <!-- <div class="contact">
+            <a target="_blank" href="Github.com/Sanketdeshmukh123">
+                <i class="fab fa-github fa-lg contact-icon" style="color:blanchedalmond !important"></i></a>
+            <a target="_blank" href="linkedin.com/in/sanket-deshmukh-925618197">
+                <i class="fab fa-linkedin fa-lg contact-icon" style="color:blanchedalmond !important"></i></a>
+        </div> -->
+    </footer>
+</body>
+
+</html>
