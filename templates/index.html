@@ -1,131 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Old Car Price Prediction</title>
-    <link rel="stylesheet" href="./input.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='input.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <!-- header navbar -->
-    <nav class="navbar">
+    <header class="navbar">
         <div class="container">
-            <div class="navbar-header">
-                <h1><b>Old Car Price Prediction</b></h1>
-            </div>
+            <h1 class="logo">Car Price Prediction App</h1>
         </div>
-    </nav>
-    <!-- input container -->
-    <div id="parent">
-        <div id="heading">
-            <h4>
-                <b>Project : Integrated Machine Learning into Web Application with FLASK</b>
-            </h4>
-        </div>
-        <div id="input">
-            <form action="{{ url_for('predict')}}" method="post">
-                <table>
-                    <tr>
-                        <td><label for="age_of_car" class="label-control">Car Age</label></td>
-                        <td><input type="text" class="input-control" name="age_of_car" id="age_of_car"
-                                placeholder="Enter the age of car Ex: 1 " required="required"></td>
-                    </tr>
-                    <tr>
-                        <td> <label for="transmission" class="label-control">Transmission</label></td>
-                        <td><select input type="text" class="input-control" name="transmission" id="transmission"
-                                placeholder="Enter the type of transmission car Ex: Manual" required="required"
-                                required>
-                                <option value=0>Automatic</option>
-                                <option value=1>Manual</option>
-                                <option value=2>SemiAuto</option>
-                            </select></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="mileage" class="label-control"> Miles Runned</label>
-                        </td>
-                        <td>
-                            <input type="text" class="input-control" name="mileage" id="mileage"
-                                placeholder="Enter the Total miles traveled or covered Ex: 4562" required="required">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="fuelType" class="label-control">Fuel Type</label>
-                        </td>
-                        <td>
-                            <select input type="text" class="input-control" name="fuelType" id="fuelType"
-                                placeholder="Enter the fuelType of car Ex: Petrol " required="required" required>
-                                <option value=0>Diesel</option>
-                                <option value=1>Petrol</option>
-                                <option value=2>Hybrid</option>
-                                <option value=3>Other</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="tax" class="label-control">Car Tax</label>
-                        </td>
-                        <td>
-                            <input type="text" class="input-control" name="tax" id="tax"
-                                placeholder="Enter the Tax to be paid for the car Ex: 145" required="required">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="mpg" class="label-control"> Car Mileage </label>
-                        </td>
-                        <td>
-                            <input type="text" class="input-control" name="mpg" id="mpg"
-                                placeholder="Enter the mileage of the car Ex: 49.6 " required="required">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="engineSize" class="label-control">Engine Size</label>
-                        </td>
-                        <td>
-                            <input type="text" class="input-control" name="engineSize" id="engineSize"
-                                placeholder="Enter the Size of the Engine Ex: 2.0 " required="required">
-                        </td>
-                    </tr>
-                    <tr>
-                        <!-- Submit button  -->
-                        <td colspan="2">
-                            <button type="submit" class="submit-button">
-                                <b>Predict Price</b>
-                            </button>
-                        </td>
-                        <!-- <td></td> -->
-                    </tr>
-                </table>
+    </header>
+    <main class="content">
+        <section class="intro">
+            <h2>Welcome to our Car Price Prediction System</h2>
+            <p>Our intelligent system can predict the price of old cars based on market rates.</p>
+        </section>
+        <section class="input-form">
+            <h2>Enter Car Details</h2>
+            <form action="{{ url_for('predict') }}" method="post">
+                <div class="form-group">
+                    <label for="age_of_car">Car Age</label>
+                    <input type="text" name="age_of_car" id="age_of_car" placeholder="Enter the car's age (e.g., 1 year)" required>
+                </div>
+                <div class="form-group">
+                    <label for="transmission">Transmission</label>
+                    <select name="transmission" id="transmission" required>
+                        <option value="0">Automatic</option>
+                        <option value="1">Manual</option>
+                        <option value="2">Semi-Auto</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mileage">Miles Run</label>
+                    <input type="text" name="mileage" id="mileage" placeholder="Enter the total miles traveled (e.g., 4562 miles)" required>
+                </div>
+                <div class="form-group">
+                    <label for="fuelType">Fuel Type</label>
+                    <select name="fuelType" id="fuelType" required>
+                        <option value="0">Diesel</option>
+                        <option value="1">Petrol</option>
+                        <option value="2">Hybrid</option>
+                        <option value="3">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tax">Car Tax</label>
+                    <input type="text" name="tax" id="tax" placeholder="Enter the car tax (e.g., $145)" required>
+                </div>
+                <div class="form-group">
+                    <label for="mpg">Car Mileage</label>
+                    <input type="text" name="mpg" id="mpg" placeholder="Enter the car's mileage (e.g., 49.6 mpg)" required>
+                </div>
+                <div class="form-group">
+                    <label for="engineSize">Engine Size</label>
+                    <input type="text" name="engineSize" id="engineSize" placeholder="Enter the engine size (e.g., 2.0L)" required>
+                </div>
+                <button type="submit" class="submit-button">Predict Price</button>
             </form>
-        </div>
-    </div>
-    <!-- Footer -->
+        </section>
+    </main>
     <footer class="footer-container">
-        <p class='footer-description'>
-            Thanks to <a href="https://dbatu.ac.in/">DBATU</a>
-        </p>
-        <p class='footer-description'>
-            Made with Sanket Deshmukh.
-        </p>
-        <!-- <div class="contact">
-            <a target="_blank" href="Github.com/Sanketdeshmukh123">
-                <i class="fab fa-github fa-lg contact-icon" style="color:blanchedalmond !important"></i></a>
-            <a target="_blank" href="linkedin.com/in/sanket-deshmukh-925618197">
-                <i class="fab fa-linkedin fa-lg contact-icon" style="color:blanchedalmond !important"></i></a>
-        </div> -->
+        <p>&copy; 2023 Car Price Prediction App</p>
+        <p class="footer-description">Sanket Deshmukh</p>
     </footer>
 </body>
-
 </html>

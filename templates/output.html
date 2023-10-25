@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Old Car Price Prediction</title>
-    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -27,29 +27,19 @@
     <div id="parent">
         <div id="heading">
             <h3>
-                <b>This intelligent system can able to predicts the price of an old car as per market rate</b>
+                <b>This intelligent system can predict the price of an old car based on market rates</b>
             </h3>
         </div>
         <div id="output">
             <form action="{{ url_for('predict')}}" method="post">
-                <h1 style="color:black;font-size:80px;"><b>{{ prediction_price }}</b></h1>
+                <h1><b>{{ prediction_price }}</b></h1>
             </form>
         </div>
     </div>
     <!-- Footer -->
     <footer class="footer-container">
-        <p class='footer-description'>
-            Thanks to <a href="https://dbatu.ac.in/">DBATU</a>
-        </p>
-        <p class='footer-description'>
-            Made with Sanket Deshmukh.
-        </p>
-        <!-- <div class="contact">
-            <a target="_blank" href="Github.com/Sanketdeshmukh123">
-                <i class="fab fa-github fa-lg contact-icon" style="color:blanchedalmond !important"></i></a>
-            <a target="_blank" href="linkedin.com/in/sanket-deshmukh-925618197">
-                <i class="fab fa-linkedin fa-lg contact-icon" style="color:blanchedalmond !important"></i></a>
-        </div> -->
+        <p>&copy; 2023 Car Price Prediction App</p>
+        <p class="footer-description">Sanket Deshmukh</p>
     </footer>
 </body>
 
